@@ -1,4 +1,7 @@
 {
+    // "terminal.integrated.shell.windows#": "c:\\WINDOWS\\System32\\cmd.exe"
+    // "python.jediEnabled": false
+
     "latex-workshop.latex.recipes": [
         {
             "name": "latexmk (latexmkrc)",
@@ -22,5 +25,5 @@
             ]
         }
     ],
-    "latex-workshop.latex.outDir": "%DIR%/out"
+    "latex-workshop.latex.outDir": "%DIR%/out",
 }

@@ -1,9 +1,18 @@
 {
     "latex-workshop.latex.recipes": [
         {
-            "name": "latexmk (latexmkrc)",
+            "name": "xelatex -> biber -> xelatex*2",
             "tools": [
-                "latexmk_rconly"
+            "xelatex",
+            "biber",
+            "xelatex",
+            "xelatex"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "tools": [
+                "xelatex"
             ]
         },
         {
@@ -13,14 +22,75 @@
             ]
         },
         {
-            "name": "xelatex -> bibtex -> xelatex * 2",
+            "name": "xelatex -> biber",
             "tools": [
                 "xelatex",
+                "bibtex"
+            ]
+        },
+        {
+            "name": "pdflatex -> bibtex -> pdflatex*2",
+            "tools": [
+                "pdflatex",
                 "bibtex",
-                "xelatex",
-                "xelatex"
+                "pdflatex",
+                "pdflatex"
             ]
         }
     ],
-    "latex-workshop.latex.outDir": "%DIR%/out"
+    "latex-workshop.latex.tools": [
+        {
+            "name": "latexmk",
+            "command": "latexmk",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-xelatex",
+                "-outdir=%OUTDIR%",
+                "-cd",
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+        "name": "pdflatex",
+        "command": "pdflatex",
+        "args": [
+            "-synctex=1",
+            "-interaction=nonstopmode",
+            "-file-line-error",
+            "%DOCFILE%"
+        ]
+        },
+        {
+            "name": "bibtex",
+            "command": "bibtex",
+            "args": [
+                "%DOCFILE%"
+            ]
+        },
+        {
+            "name": "xelatex",
+            "command": "xelatex",
+            "args": [
+                "-synctex=1",
+                "-interaction=nonstopmode",
+                "-file-line-error",
+                "-pdf",
+                "-outdir=%OUTDIR%",
+                "-cd",
+                "%DOCFILE%"
+            ],
+            "env": {}
+        },
+        {
+            "name": "biber",
+            "command": "biber",
+            "args": [
+                "%DOCFILE%"
+            ],
+            "env": {}
+        }
+    ],
 }
